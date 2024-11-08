@@ -195,10 +195,8 @@ class Ui_SmartNotes(object):
     def del_tag(self):
         if self.tagList.currentItem():
                 selected_tag = self.tagList.currentItem().text()
-                for note_name, note_data in data.items():
-                        if selected_tag in note_data['теги']:
-                                note_data['теги'].remove(selected_tag)
-                                break
+                note_name = self.notesList.currentItem().text()
+                data[note_name]['теги'].remove(selected_tag)
             
         with open("notes.json", 'w', encoding='utf-8') as file:
                 json.dump(data, file, sort_keys=True)
