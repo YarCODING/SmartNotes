@@ -203,9 +203,6 @@ class Ui_SmartNotes(object):
             
         self.tagList.clear()
         self.tagList.addItems(data[self.notesList.currentItem().text()]['теги'])
-            
-        with open("notes.json", 'w', encoding='utf-8') as file:
-                json.dump(data, file, sort_keys=True)
 
 if __name__ == "__main__":
     import sys
