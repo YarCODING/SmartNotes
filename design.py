@@ -143,12 +143,13 @@ class Ui_SmartNotes(object):
     def show_notes(self):
         global data
         with open('notes.json', 'r', encoding='utf-8') as file:
-                try:
-                    data = json.load(file)
-                except json.JSONDecodeError:
-                     
+            try:
+                data = json.load(file)
+            except:
+                data = {}
+
         self.notesList.addItems(data.keys())
-    
+
     def show(self):
         t = self.notesList.currentItem().text()
         self.textEdit.setText(data[t]["текст"])
