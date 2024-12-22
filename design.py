@@ -204,6 +204,20 @@ class Ui_SmartNotes(object):
         self.tagList.clear()
         self.tagList.addItems(data[self.notesList.currentItem().text()]['теги'])
 
+    def search_by_tag(self):
+        tag = self.TagEdit.text()
+        search_notes = {}
+        for note in data:
+            if tag in data[note]['теги']:
+                search_notes[note] = data[note]
+        self.notesList.clear()
+        for note in search_notes:
+            self.notesList.addItem(note)
+        self.textEdit.clear()
+        self.tagList.clear()
+        self.FindNote.setText("Скинути пошук")
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
